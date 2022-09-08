@@ -1,0 +1,44 @@
+*{
+    background-color: beige;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+}
+
+.btcontainer{
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0;
+}
+
+.subcontainer{
+    display: flex;
+    flex-flow: row wrap;
+    margin: auto;
+    height: 100vh;
+    width: 100vh;
+}
+
+.grid{
+    flex: 1 1 6.25%;
+    border: dashed;
+    border-width: thin;
+}
+
+button{
+    margin: 18px;
+    width: 180px;
+    height: 30px;
+    border-radius: 20px;
+    background: rgb(170, 170, 170);
+    color: rgb(19, 28, 36);
+    font-weight: bold;
+}
+
+.reset{
+    color: rgb(34, 34, 9);
+}
