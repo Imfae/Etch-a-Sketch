@@ -14,6 +14,9 @@ let choice1 = false;
 
 let choice2 = false;
 
+//Paintbrush starting color
+let color = '#000000';
+
 const rando = document.querySelector(".rando");
 
 const opac = document.querySelector(".opac");
@@ -26,7 +29,7 @@ rando.addEventListener("click", ()=>{
     }else{
         choice1 = true;
         rando.style.background = 'white';
-    }});
+}});
 
 //Event listener for paintbrush selection button 'Opacity'
 opac.addEventListener("click", ()=>{
@@ -36,8 +39,12 @@ opac.addEventListener("click", ()=>{
     }else{
         choice2 = true;
         opac.style.background = 'white';
-    }});
-    
+}});
+
+const colorpicker = document.querySelector(".colorpicker");
+
+//Event listener for paintbrush color picker
+colorpicker.addEventListener("change", (e)=>{color = e.target.value});
 
 //All elements with class 'grid' listen for mouseover event
 grids.forEach((grid)=>{
@@ -58,7 +65,7 @@ grids.forEach((grid)=>{
             }
         }
         else{
-            grid.style.background = `black`;
+            grid.style.background = `${color}`;
         }
 
     })
@@ -107,7 +114,7 @@ function createGrid(gridNum){
                 }
             }
             else{
-                grid.style.background = `black`;
+                grid.style.background = `${color}`;
             }
         })
     })
