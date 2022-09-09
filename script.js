@@ -8,13 +8,17 @@ for (let i = 0; i < 256; i++){
     div.classList.add("grid");
 }
 
-//Select all elements with class 'grid'
 const grids = document.querySelectorAll(".grid");
 
 let choice1 = false;
+
 let choice2 = false;
+
 const rando = document.querySelector(".rando");
+
 const opac = document.querySelector(".opac");
+
+//Event listener for paintbrush selection button 'Random paint color'
 rando.addEventListener("click", ()=>{
     if (choice1 === true){
         choice1 = false;
@@ -23,6 +27,8 @@ rando.addEventListener("click", ()=>{
         choice1 = true;
         rando.style.background = 'white';
     }});
+
+//Event listener for paintbrush selection button 'Opacity'
 opac.addEventListener("click", ()=>{
     if (choice2 === true){
         choice2 = false;
@@ -31,11 +37,14 @@ opac.addEventListener("click", ()=>{
         choice2 = true;
         opac.style.background = 'white';
     }});
+    
 
 //All elements with class 'grid' listen for mouseover event
 grids.forEach((grid)=>{
     let opacity = 10;
     grid.addEventListener("mouseover", ()=>{
+
+        //Paintbrush options
         if (choice1){
             let random1 = Math.floor(Math.random()*255);
             let random2 = Math.floor(Math.random()*255);
@@ -43,18 +52,20 @@ grids.forEach((grid)=>{
             grid.style.background = `rgb(${random1}, ${random2}, ${random3})`;    
         }
         else if (choice2){
-            grid.style.background = `rgb(255, 0, 0, ${opacity}%)`;
+            grid.style.background = `rgb(0, 0, 0, ${opacity}%)`;
             if (opacity < 100){
                 opacity += 10;
             }
         }
-        
+        else{
+            grid.style.background = `black`;
+        }
 
     })
 })
 
 function createGrid(gridNum){
-    //Clear parent node 'subcontainer'
+    //Clear canvas grids
     while (subcontainer.firstChild) {
         subcontainer.removeChild(subcontainer.lastChild);
     }
@@ -80,11 +91,26 @@ function createGrid(gridNum){
     const grids = document.querySelectorAll(".grid");
 
     grids.forEach((grid)=>{
+        let opacity = 10;
         grid.style.flexBasis = `${percent}%`;
         grid.addEventListener("mouseover", ()=>{
-            grid.style.background = 'red';
+            if (choice1){
+                let random1 = Math.floor(Math.random()*255);
+                let random2 = Math.floor(Math.random()*255);
+                let random3 = Math.floor(Math.random()*255);
+                grid.style.background = `rgb(${random1}, ${random2}, ${random3})`;    
+            }
+            else if (choice2){
+                grid.style.background = `rgb(0, 0, 0, ${opacity}%)`;
+                if (opacity < 100){
+                    opacity += 10;
+                }
+            }
+            else{
+                grid.style.background = `black`;
+            }
         })
-    }) 
+    })
 }
 
 //Select element with button tag
