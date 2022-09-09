@@ -12,7 +12,7 @@
 .btcontainer{
     display: flex;
     flex-direction: column;
-    padding: 50px 0;
+    padding: 40px 0;
 }
 
 .subcontainer{
@@ -36,9 +36,16 @@ button{
     border-radius: 20px;
     background: rgb(170, 170, 170);
     color: rgb(19, 28, 36);
+    font-family: 'Audiowide', sans-serif;
     font-weight: bold;
 }
 
 .reset{
     color: rgb(34, 34, 9);
+}
+
+.header{
+    font-family: 'Audiowide', sans-serif;
+    font-size: 25px;
+    padding: 20px 20px;
 }
